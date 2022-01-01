@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<p>worker response</p>
+<H1>{{ worker_name }}!</h1>
+<H1>Please chose which shifts you can work next week.</h1>
+
+<form action="/myshifts" method="post">
+      <label>Sunday</label>
+      <select name="sunday" id="#">
+        <option value="morning">morning</option>
+        <option value="evening">evening</option>
+        <option value="one of two">one of two</option>
+        <option value="two of two">two of two</option>
+        <option value="day off">day off</option>
+      </select>
+        
+      <label>Monday</label>
+      <select name="monday" id="#">
+        <option value="morning">morning</option>
+        <option value="evening">evening</option>
+        <option value="one of two">one of two</option>
+        <option value="two of two">two of two</option>
+        <option value="day off">day off</option>
+      </select>
+        
+      <label>Tuesday</label>
+      <select name="tuesday" id="#">
+        <option value="morning">morning</option>
+        <option value="evening">evening</option>
+        <option value="one of two">one of two</option>
+        <option value="two of two">two of two</option>
+        <option value="day off">day off</option>
+      </select>
+        
+      <label>Wednesday</label>
+      <select name="wednesday" id="#">
+        <option value="morning">morning</option>
+        <option value="evening">evening</option>
+        <option value="one of two">one of two</option>
+        <option value="two of two">two of two</option>
+        <option value="day off">day off</option>
+      </select>
+        
+      <label>Thursday</label>
+      <select name="thursday" id="#">
+        <option value="morning">morning</option>
+        <option value="evening">evening</option>
+        <option value="one of two">one of two</option>
+        <option value="two of two">two of two</option>
+        
+      </select>
+        
+      <label>Friday</label>
+      <select name="friday" id="#">
+        <option value="morning">morning</option>
+        <option value="evening">evening</option>
+        <option value="one of two">one of two</option>
+        <option value="two of two">two of two</option>
+        <option value="day off">day off</option>
+      </select>
+        
+      <label>Saturday</label>
+      <select name="saturday" id="#">
+        <option value="morning">morning</option>
+        <option value="evening">evening</option>
+        <option value="one of two">one of two</option>
+        <option value="two of two">two of two</option>
+        <option value="day off">day off</option>
+      </select></br>
+        </br>
+      <textarea name="exp" rows="4" cols="50">editional explanation:</textarea>
+      <button type"submitt">Send</button>
+      
+</form>
+
+
+
+{% endblock %}

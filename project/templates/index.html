@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+
+{% block main %}
+
+<H1>Today is: </h1>
+<H1>Day {{ day }}</h1>
+<H1>Month {{ month }}</h1>
+<H1>Year {{ year }}</h1>
+
+
+<H1>Day of the week {{ bw_day}}</h1>
+        <form action="/" method="post">
+                <button type="submitt">back</button>
+
+        </form>
+
+        <H1>Shedule for this week<h1>
+        <div class="table">
+        <table>
+                <tr>
+                  <td></td><td>sun</td><td>mon</td><td>tue</td><td>wed</td><td>thu</td><td>fri</td><td>sat</td>
+                </tr>
+                {% for res in result_mrows %}
+                <tr>
+                  <td>morning</br>shift</td><td>{{res["sun"]}}</td><td>{{res["mon"]}}</td><td>{{res["tue"]}}</td><td>{{res["wed"]}}</td><td>{{res["thu"]}}</td><td>{{res["fri"]}}</td><td>{{res["sat"]}}</td>
+                </tr>
+                <tr>
+                  <td>editional</br>information</td><td>{{res["edsun"]}}</td><td>{{res["edmon"]}}</td><td>{{res["edtue"]}}</td><td>{{res["edwed"]}}</td><td>{{res["edthu"]}}</td><td>{{res["edfri"]}}</td><td>{{res["edsat"]}}</td>
+                </tr>
+                {% endfor %}
+                {% for res in result_erows %}
+                <tr>
+                  <td>evening</br>shift</td><td>{{res["sun"]}}</td><td>{{res["mon"]}}</td><td>{{res["tue"]}}</td><td>{{res["wed"]}}</td><td>{{res["thu"]}}</td><td>{{res["fri"]}}</td><td>{{res["sat"]}}</td>
+                </tr>
+                <tr>
+                  <td>editional</br>information</td><td>{{res["edsun"]}}</td><td>{{res["edmon"]}}</td><td>{{res["edtue"]}}</td><td>{{res["edwed"]}}</td><td>{{res["edthu"]}}</td><td>{{res["edfri"]}}</td><td>{{res["edsat"]}}</td>     
+                </tr>
+                 {% endfor %}
+        </table>
+        </div>
+        <H1>requests for next week</h1>
+         <div class="table">
+        <table>
+                <tr>
+                  <td></td><td>sun</td><td>mon</td><td>tue</td><td>wed</td><td>thu</td><td>fri</td><td>sat</td>
+                </tr>
+                {% for row in request_rows %}
+                  {% if row["sun"] == "morning" %} {% set msun = row["name"]%}
+                  {% elif row["sun"] == "one of two" %} {% set msun = row["name"] + " 1 of 2"%}
+                  {% elif row["sun"] == "two of two" %} {% set msun = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["mon"] == "morning" %} {% set mmon = row["name"]%}
+                  {% elif row["mon"] == "one of two" %} {% set mmon = row["name"] + " 1 of 2"%}
+                  {% elif row["mon"] == "two of two" %} {% set mmon = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["tue"] == "morning" %} {% set mtue = row["name"]%}
+                  {% elif row["tue"] == "one of two" %} {% set mtue = row["name"] + " 1 of 2"%}
+                  {% elif row["tue"] == "two of two" %} {% set mtue = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["wed"] == "morning" %} {% set mwed = row["name"]%}
+                  {% elif row["wed"] == "one of two" %} {% set mwed = row["name"] + " 1 of 2"%}
+                  {% elif row["wed"] == "two of two" %} {% set mwed = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["thu"] == "morning" %} {% set mthu = row["name"]%}
+                  {% elif row["thu"] == "one of two" %} {% set mthu = row["name"] + " 1 of 2"%}
+                  {% elif row["thu"] == "two of two" %} {% set mthu = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["fri"] == "morning" %} {% set mthu = row["name"]%}
+                  {% elif row["fri"] == "one of two" %} {% set mmon = row["name"] + " 1 of 2"%}
+                  {% elif row["fri"] == "two of two" %} {% set mmon = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["sat"] == "morning" %} {% set mfri = row["name"]%}
+                  {% elif row["sat"] == "one of two" %} {% set mfri = row["name"] + " 1 of 2"%}
+                  {% elif row["sat"] == "two of two" %} {% set mfri = row["name"] + " 2"%}
+                  {% endif%}
+                  <tr>
+                    <td>morning</td><td>{{ msun }}</td><td>{{ mmon}}</td><td>{{mtue}}</td><td>{{mwed}}</td><td>{{mthu}}</td><td>{{mfri}}</td><td>{{msat}}</td>
+                  </tr>
+                  {% endfor %}
+
+                {% for row in request_rows %}
+                  {% if row["sun"] == "evening" %} {% set esun = row["name"]%}
+                  {% elif row["sun"] == "one of two" %} {% set esun = row["name"] + " 1 of 2"%}
+                  {% elif row["sun"] == "two of two" %} {% set esun = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["mon"] == "evening" %} {% set emon = row["name"]%}
+                  {% elif row["mon"] == "one of two" %} {% set emon = row["name"] + " 1 of 2"%}
+                  {% elif row["mon"] == "two of two" %} {% set emon = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["tue"] == "evening" %} {% set etue = row["name"]%}
+                  {% elif row["tue"] == "one of two" %} {% set etue = row["name"] + " 1 of 2"%}
+                  {% elif row["tue"] == "two of two" %} {% set etue = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["wed"] == "evening" %} {% set ewed = row["name"]%}
+                  {% elif row["wed"] == "one of two" %} {% set ewed = row["name"] + " 1 of 2"%}
+                  {% elif row["wed"] == "two of two" %} {% set ewed = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["thu"] == "evening" %} {% set ethu = row["name"]%}
+                  {% elif row["thu"] == "one of two" %} {% set ethu = row["name"] + " 1 of 2"%}
+                  {% elif row["thu"] == "two of two" %} {% set ethu = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["fri"] == "evening" %} {% set efri = row["name"]%}
+                  {% elif row["fri"] == "one of two" %} {% set efri = row["name"] + " 1 of 2"%}
+                  {% elif row["fri"] == "two of two" %} {% set efri = row["name"] + " 2"%}
+                  {% endif%}
+                  {% if row["sat"] == "evening" %} {% set esat = row["name"]%}
+                  {% elif row["sat"] == "one of two" %} {% set esat = row["name"] + " 1 of 2"%}
+                  {% elif row["sat"] == "two of two" %} {% set esat = row["name"] + " 2"%}
+                  {% endif%}
+                  <tr>
+                    <td>evening</td><td>{{ esun }}</td><td>{{emon}}</td><td>{{etue}}</td><td>{{ewed}}</td><td>{{ethu}}</td><td>{{efri}}</td><td>{{esat}}</td>
+                  </tr>
+                {% endfor %}
+
+
+
+        </table>
+        </div>
+
+        <!-- <div>{{my_calendar}}</div> -->
+
+
+{% endblock %}

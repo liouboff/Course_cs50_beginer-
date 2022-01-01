@@ -1,0 +1,41 @@
+<HTML>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="/static/favicon.ico" rel="icon">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+        <title>Shifts organiser</title>
+    </head>
+<body>
+   <div class="" id="#">
+                {% if session.session_id %}                                                                                                                                                                                                                                                                                                                                
+                   
+                   <a class="#" href="/">Home</a>
+                    <a class="#" href="/logout">Log Out</a>
+
+                {% else %}
+                    <H1>Log whith the phone number</H1>
+                    <form action="/login_phone" method="post">
+                    <input name="phone" type="text" placeholder="phone"></input>
+                    <button class="submitt">Submitt</button>
+                    </form>
+                    <H1>Log whith password</H1>
+                        <a class="#" href="/register">Register</a>
+                        <a class="#" href="/login">Log In</a>
+
+                {% endif %}
+            </div>
+        </nav>
+         <main class="container">
+            {% block main %}{% endblock %}
+        </main>
+
+        
+    
+</body>
+
+</HTML>

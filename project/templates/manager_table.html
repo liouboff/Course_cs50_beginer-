@@ -1,0 +1,412 @@
+{% extends "layout.html" %}
+{% block main %}
+<p>manager table</p>
+<H1>Hi, {{ worker_name }}!</h1>
+
+<H1>Shift assignment</h1>
+<div class="table">
+    <form action="/shift_assignment" method="post">
+        <table>
+                <tr>
+                  <td></td><td>sun</td><td>mon</td><td>tue</td><td>wed</td><td>thu</td><td>fri</td><td>sat</td>
+                </tr>
+                
+                  <tr>
+                    <td>morning</td>
+                    <td>
+                        <select name="msun"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select>
+                        <br>
+                        <select name="msun1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="msun2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="msun3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        
+                    </td>
+                    <td>
+
+                        <select name="mmon"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mmon1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mmon2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mmon3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        
+                    </td>
+                    <td>
+                        <select name="mtue"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                         <select name="mtue1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mtue2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br> 
+                        <select name="mtue3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                    <td>
+                        <select name="mwed"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mwed1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mwed2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mwed3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        
+                    </td>
+                    <td>
+                        <select name="mthu"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mthu1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mthu2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mthu3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                    <td>
+                    <select name="mfri"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mfri1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mfri2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="mfri3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                    <td>
+                        <select name="msat"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="msat1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="msat2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="msat3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>morning<br>editional<br>info</td>
+                    <td><textarea name="ed_msun" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_mmon" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_mtue" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_mwed" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_mthu" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_mfri" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_msat" rows="4" cols="5">Ed:</textarea></td>
+                  </tr>
+
+               
+                  <tr>
+                    <td>evening</td>
+                    <td>
+                        <select name="esun"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                         <select name="esun1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                         <select name="esun2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                         <select name="esun3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                    <td>
+                        <select name="emon"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                         </select><br>
+                         <select name="emon1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                         </select><br>
+                         <select name="emon2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                         </select><br>
+                         <select name="emon3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                         </select><br>
+                    </td>
+                    <td>
+                        <select name="etue"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="etue1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="etue2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="etue3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                    <td>
+                        <select name="ewed"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="ewed1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="ewed2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="ewed3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                    <td>
+                        <select name="ethu"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="ethu1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="ethu2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="ethu3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                    <td>
+                        <select name="efri"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="efri1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="efri2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="efri3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                    <td>
+                        <select name="esat"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="esat1"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="esat2"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                        <select name="esat3"  type="select">
+                    {% for opt in table_rows %}
+                    <option>{{ opt["name"]}}</option>
+                    {% endfor %}
+                        </select><br>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>evening<br>editional<br>info</td>
+                    <td><textarea name="ed_esun" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_emon" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_etue" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_ewed" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_ethu" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_efri" rows="4" cols="5">Ed:</textarea></td>
+                    <td><textarea name="ed_esat" rows="4" cols="5">Ed:</textarea></td>
+                  </tr>
+                  </tr>
+        </table>
+        <button type = "submitt" >Submitt</button>
+    </form>
+</div>
+<H1>List of shift requests</h1>
+<div class="table">
+    <table>
+    <tr>
+        <td>Name</td><td>date</td><td>sun</td><td>mon</td><td>tue</td><td>wed</td><td>thu</td><td>fri</td><td>sat</td><td>explanations</td>
+    </tr>
+    {% for row in request_rows %}
+    <tr>
+        <td>{{ row["name"] }}</td>
+        <td>{{ row["date"] }}</td>
+        <td>{{ row["sun"]}}</td>
+        <td>{{ row["mon"]}}</td>
+        <td>{{ row["tue"] }}</td>
+        <td>{{ row["wed"]}}</td>
+        <td>{{ row["thu"]}}</td>
+        <td>{{ row["fri"] }}</td>
+        <td>{{ row["sat"]}}</td>
+        <td>{{ row["exp"]}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+    <p>Choose the date, to cleen the old requests, last Sunday for instance!</p>
+    <div>
+        <form action ="/up_to_date" method = "post" >
+        <input name="trigger" type = "date">
+        <button type="submitt">Up to date</button>
+        </form>
+    </div>
+<H1>List of employees</h1>
+<div class="table">
+    <table>
+    <tr>
+        <td>Name</td><td>Phone</td><td>Position</td>
+    </tr>
+    {% for row in table_rows %}
+    <tr>
+        <td>{{ row["name"] }}</td>
+        <td>{{ row["phone"]}}</td>
+        <td>{{ row["position"]}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+<H1>Add the new employee</h1>
+<form action="/add_employee" method="post">
+    <input name="name" type="text" placeholder="name"></input>
+    <input name="phone" type="text" placeholder="phone number"></input>
+    <input name="position" type="text" placeholder="position"></input>
+    <button type="submit">Submitt</button>
+</form>
+{% endblock %}
