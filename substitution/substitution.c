@@ -1,3 +1,6 @@
+//program for encryption of text, no changing letter case, and non letter symbols.
+//start the program from command line argument ./substitution n (where n 26 letters of alphabet free order and free case)
+//prigram will prompt you with input text for encryption
 #include<stdio.h>
 #include<stdlib.h>
 #include<cs50.h>
