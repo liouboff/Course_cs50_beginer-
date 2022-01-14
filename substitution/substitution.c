@@ -1,142 +1,110 @@
-// The program name is substitution  demonsrating method of encryption
-// Using the comand line arguement (needs stdio.h lib)
-// For correct start type "./substitution n" where n-value of key "
 #include<stdio.h>
 #include<stdlib.h>
 #include<cs50.h>
 #include<string.h>
 #include<ctype.h>
-//main function containing the key for encryption in the second argument
-//the argument can't contain digits or other type of symbols
-//also can not be more or less then one key
+
 int main(int argc, string argv[])
 {
-//first key validation for lack of key
-//or too many arguments
-    if (argc == 2)
+    if (argc == 2)// 1. check amount of arguments
     {
-        int s = strlen(argv[1]); //lengh of the second argument
-        if (s == 26) //second key validation for amount of charakters
+        int s = strlen(argv[1]); // lengtth of the second argument
+        if (s == 26) // 2. second key validation for amount of charakters
         {
-            int i = 0;
-            int d = 1;
             int dcheck = 0; //controll number
-//Key must not contain repeated characters.
-//Key must only contain alphabetic characters.
-//validation for key characters
-            do
+            for (int i = 0; i < s; i++)
             {
-                char c = argv[1][i];  //symbols of the second argument
-                d = isalpha(c); //function chacking for alphabetic symbols returns boolean expression
-//loop chacking for alphabetic symbols returning boolean expression
+                int d = isalpha(argv[1][i]);
                 if (d == 0)
                 {
-                    dcheck = dcheck + 1; //controll number
+                    dcheck = dcheck + 1;
                 }
-                i = i + 1;
             }
-            while (i <= s);
-//third validation for symbols
-            if (dcheck == 1)
+            if (dcheck == 0)// 3. chesk for alphabetic simbols
             {
-//srting for returning calculation if formula to alphabetic symbols uppercase letters
+                // alphabetic symbols uppercase letters
                 char ciruppkey[26] = {'A', 'B', 'C', 'D', 'E', 'F', 'G',
                                       'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q',
                                       'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
                                      };
-//srting for returning calculation if formula to alphabetic symbols lowercase letters
+                // alphabetic symbols lowercase letters
                 char cirlowkey[26] = {'a', 'b', 'c', 'd', 'e', 'f', 'g',
                                       'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
                                       'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
                                      };
-                int iv = 0;
-                char loargv[26]; //string only in upper case symbols
-                while (iv <= 26) 
-                {  
-                    loargv[iv] = tolower(argv[1][iv]);
-                    iv++;
-                } 
-                int il = 0;
-                char upargv[26]; //string only in upper case symbols
-                while (il <= 26) 
-                {  
-                    upargv[il] = toupper(argv[1][il]);
-                    il++;
-                } 
-                int con = 1;
-                for (int ik = 0; ik <= 26; ik++)
-                {   
-                    int x = 0;
-                    char z = ciruppkey[ik];
-                    for (int ic = 0; ic <= 26; ic ++)
-                    {
-                        char w = upargv[ic];
-                        if (z == w)
-                        {
-                            x =  x + 1;
-                        }
-                    }
-                    if (x != 1) 
-                    {
-                        con = 0;
-                    }
-                }
-                if (con == 1)
+                int lcheck[26] = {};
+                int fcheck = 0;
+                char high[26];
+                for (int x = 0; x < 26; x++)
                 {
-                    string plain = get_string("plaintext:  ");  // getting string for encription
-                    int ss = strlen(plain);                 //function chacking lengh of recived string
-                    char cipcip[ss];                     //determing leng of future cipher string
-                    char du = 0;
-                    char nu = 0;
-                    char fu = 0;
-                    for (int im = 0; im <= ss; im++)
+                    high[x] = toupper(argv[1][x]);
+                }
+                for (int i = 0; i < 26; i++)
+                {
+                    for (int j = 0; j < 26; j++)
                     {
-                        char u = plain[im];
-                        for (int id = 0; id <= 26; id++)
+                        if (ciruppkey[i] == high[j])
                         {
-                            char j = ciruppkey[id];
-                            char o = cirlowkey[id];
-                            char q = upargv[id];
-                            char g = loargv[id];
-                            if (u == j)
-                            {
-                                du = q;  
-                            }
-                            else if (u == o) 
-                            {
-                                nu = g;
-                            }
-                            else 
-                            {
-                                fu = u;
-                            }
+                            lcheck[i] = lcheck[i] + 1;
                         }
-                        cipcip[im] = du;
-// separarion other simbols, copying with no changees
-                        if (isalpha(plain[im]) == 0)
-                        {
-                            cipcip[im] = fu;
-                        }
-//uppercase letters
-                        else if (islower(plain[im]) == 0) 
-                        {
-                            cipcip[im] = du;
-                        }
-//lowcase letters
                         else
                         {
-                            cipcip[im] = nu;
+                            lcheck[i] = lcheck[i];
                         }
                     }
-                    printf("ciphertext: %s\n", cipcip);
+                }
+                for (int i = 0; i < 26; i ++)
+                {
+                    if (lcheck[i] != 1)
+                    {
+                        fcheck = 1;
+                    }
+                }
+                if (fcheck == 0)  // 4. check for repeating letters
+                {
+                    string plain = get_string("plaintext:  ");  // getting string for encription
+                    int ss = strlen(plain);                 // chacking lengh of recived string
+                    char low[26] = {};
+                    char cifer[ss];
+                    for (int x = 0; x < 26; x++)
+                    {
+                        low[x] = tolower(argv[1][x]);
+                    }
+                    for (int i = 0; i <= ss; i++)
+                    {
+                        if (isalpha(plain[i]) == 0)
+                        {
+                            cifer[i] = plain[i];
+                        }
+                        else if (islower(plain[i]) == 0)
+                        {
+                            for (int x = 0; x < 26; x++)
+                            {
+                                if (plain[i] == ciruppkey[x])
+                                {
+                                    cifer[i] = high[x];
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int y = 0; y < 26; y++)
+                            {
+                                if (plain[i] == cirlowkey[y])
+                                {
+                                    cifer[i] = low[y];
+                                }
+                            }
+                        }
+                    }
+                    printf("ciphertext: %s\n", cifer);
                 }
                 else
                 {
                     printf("Key must not contain repeated characters.\n");
-                    return 1;
+                    return 1;   //in the case of error the program returning 1
                 }
             }
-//validation for alphabetic charactres
             else
             {
                 printf("Key must only contain alphabetic characters.\n");
@@ -149,12 +117,9 @@ int main(int argc, string argv[])
             return 1;       //in the case of error the program returning 1
         }
     }
-//validation for too many arguments
     else
     {
         printf("Usage: ./substitution key\n");
         return 1;     //in the case of error the program returning 1
     }
-//in the case of the program returning correct return 0
-    return 0;
 }
